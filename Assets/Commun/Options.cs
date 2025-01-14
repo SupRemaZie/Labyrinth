@@ -13,7 +13,7 @@ public class Options
         }
     }
 
-    public string Color { get; set; }
+    public int Color { get; set; }
 
     public string test;
 
@@ -21,7 +21,7 @@ public class Options
 
     private Options()
     {
-        Color = "#FF0000";
+        Color = 0;
         IsBackgroundMusicEnabled = true;
         test = "hello";
     }
