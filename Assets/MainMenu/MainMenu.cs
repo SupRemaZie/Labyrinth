@@ -5,7 +5,7 @@ public class MenuController : MonoBehaviour
 {
     public void OnPlayClicked()
     {
-        SceneManager.LoadScene("1st_level");
+        SceneManager.LoadScene(1);
     }
 
     public void OnOptionsClicked()
