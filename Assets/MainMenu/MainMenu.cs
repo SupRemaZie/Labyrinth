@@ -5,12 +5,12 @@ public class MenuController : MonoBehaviour
 {
     public void OnPlayClicked()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
     }
 
     public void OnOptionsClicked()
     {
-        Debug.Log("Ouvrir Options");
+        SceneManager.LoadScene(1);
     }
 
     public void OnQuitClicked()
