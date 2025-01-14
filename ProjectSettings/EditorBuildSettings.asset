@@ -9,7 +9,13 @@ EditorBuildSettings:
     path: Assets/MainMenu/MainMenu.unity
     guid: 5ecb15778522ac84397a39dbe47cc90e
   - enabled: 1
-    path: Assets/1st_level/1st_level.unity
-    guid: ffbe7ccd44085f5478aaf38ae4474f3b
+    path: Assets/levels/1st_level/1st_level.unity
+    guid: 3359f79c66d478942b96ed173c7bc348
+  - enabled: 1
+    path: Assets/levels/2nd_level/2nd_level.unity
+    guid: a9938da9f6b2a9c4dbfc4906e1323a74
+  - enabled: 1
+    path: Assets/levels/3rd_level/3rd_level.unity
+    guid: aaa3a70d31242cf44ae1ec7619bb4db8
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
