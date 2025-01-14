@@ -1,12 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainMenu : MonoBehaviour
+public class MenuController : MonoBehaviour
 {
-    public void PlayGame()
+    public void OnPlayClicked()
     {
-        SceneManager.LoadSceneAsync(1);
+        SceneManager.LoadScene("1st_level");
+    }
+
+    public void OnOptionsClicked()
+    {
+        Debug.Log("Ouvrir Options");
+    }
+
+    public void OnQuitClicked()
+    {
+        Application.Quit();
     }
 }
