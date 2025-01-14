@@ -954,6 +954,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44930219a20889540a9d3167e8c54fc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _color: {fileID: 1958226670}
+  _backgroundMusicToggle: {fileID: 659270933}
 --- !u!1 &602509015
 GameObject:
   m_ObjectHideFlags: 0
@@ -1114,7 +1116,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_IsOn: 1
+  m_IsOn: 0
 --- !u!1 &724065497
 GameObject:
   m_ObjectHideFlags: 0
@@ -2595,9 +2597,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1958226669}
+  - component: {fileID: 1958226670}
   - component: {fileID: 1958226672}
   - component: {fileID: 1958226671}
-  - component: {fileID: 1958226670}
   m_Layer: 5
   m_Name: color
   m_TagString: Untagged
