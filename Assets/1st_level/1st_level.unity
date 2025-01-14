@@ -2161,6 +2161,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1267047158519163015, guid: 524a953ecf4c4f747811073e9724c6c5,
         type: 3}
+      propertyPath: m_Mass
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1267047158519163015, guid: 524a953ecf4c4f747811073e9724c6c5,
+        type: 3}
       propertyPath: m_CollisionDetection
       value: 1
       objectReference: {fileID: 0}
