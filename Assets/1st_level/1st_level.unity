@@ -286,10 +286,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 222551430}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b84b25311e2519f43926d3bb009647ca, type: 3}
+  m_Script: {fileID: 11500000, guid: adb4824229fb36545854bab7565c6362, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chronometerText: {fileID: 0}
+  chronometerText: {fileID: 1776761161}
 --- !u!114 &222551432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -390,7 +390,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1776761163}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
