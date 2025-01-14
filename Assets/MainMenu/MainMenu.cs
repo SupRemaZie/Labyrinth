@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour
 {
+    Timer timer;
     public void OnPlayClicked()
     {
         SceneManager.LoadScene(2);
@@ -14,7 +15,9 @@ public class MenuController : MonoBehaviour
     }
 
     public void OnQuitClicked()
-    {
+    {   
+        Destroy(timer);
         Application.Quit();
+        
     }
 }

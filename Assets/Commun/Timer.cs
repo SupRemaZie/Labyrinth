@@ -1,25 +1,57 @@
 using UnityEngine;
 using TMPro;
 
+
+
 public class Timer : MonoBehaviour
 {
-    private float elapsedTime; 
+
+    [Header("Chronometer Settings")]
+    private float elapsedTime=0f; 
+    private bool isRunning = false;
+
+    [Header("UI")]
     public TMP_Text chronometerText;
-    void Start()
-    {
     
+    void Start()
+    {   
+        StartChronometer();
     }
 
-    // Update is called once per frame
-    void Update()
+
+    void FixedUpdate()
     {
-        elapsedTime += Time.deltaTime;
+        // Debug.Log(isRunning);
+        if(isRunning){
+            elapsedTime += Time.deltaTime;
+            UpdateChronometerText();
+        }
 
-        // Convertir le temps écoulé en minutes et secondes
-        int minutes = Mathf.FloorToInt(elapsedTime / 60F);
-        int seconds = Mathf.FloorToInt(elapsedTime % 60F);
-
-        // Formater le texte
-        chronometerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
+      private void UpdateChronometerText()
+    {
+        if (chronometerText != null)
+        {
+            int minutes = Mathf.FloorToInt(elapsedTime / 60F);
+            int seconds = Mathf.FloorToInt(elapsedTime % 60F);
+            chronometerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        }
+    }
+      public void StartChronometer()
+    {
+        isRunning = true;
+        Debug.Log("Chronometer started!");
+    }
+
+    public void StopTimer() {
+        isRunning = false;
+        Debug.Log("Chronometer stopped!");
+    }
+      public void ResetChronometer()
+    {
+        elapsedTime = 0f;
+        UpdateChronometerText();
+        Debug.Log("Chronometer reset!");
+    }
+    
 }
