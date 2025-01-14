@@ -66,21 +66,30 @@ public class Player : MonoBehaviour
         // _rigidbody.linearVelocity = vel;
 
         float local_x = transform.localRotation.eulerAngles.x;
-        float local_y = transform.localRotation.eulerAngles.y;
+        float local_z = transform.localRotation.eulerAngles.z;
 
         local_x %=360;
         local_x= local_x>180 ? local_x-360 : local_x;
 
-        float limit = 30f;
-            
-        if(local_x > limit)
-            transform.Rotate(-1, 0, 0);
-        else if (local_x < -limit)
-            transform.Rotate(1, 0, 0);
-        else
-            transform.Rotate(moveDir.y, moveDir.x, 0);
+        local_z %=360;
+        local_z= local_z>180 ? local_z-360 : local_z;
 
-        Console.Write("X :" + local_x + " | Y : " + local_y);
+        float _limit = 30f;
+
+        float _force = 0.5f;
+            
+        if(local_x > _limit)
+            transform.Rotate(-_force, 0, 0);
+        else if (local_x < -_limit)
+            transform.Rotate(_force, 0, 0);
+        else if (local_z > _limit)
+            transform.Rotate(0, 0, -_force);
+        else if (local_z < -_limit)
+            transform.Rotate(0, 0, _force);
+        else
+            transform.Rotate(moveDir.y * _force, 0, moveDir.x * _force);
+
+        // Console.Write("X :" + local_x + " | Y : " + local_y);
 
         Vector2 lookDir = _lookAction.ReadValue<Vector2>();
     }
