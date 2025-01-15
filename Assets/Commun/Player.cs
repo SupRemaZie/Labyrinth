@@ -18,6 +18,8 @@ public class Player : MonoBehaviour
     // private float _jumpforce = 6f;
     // private bool _isGrounded;
 
+    private Rigidbody _rigidbody;
+
     private InputAction _moveAction;
     private InputAction _lookAction;
 
@@ -26,6 +28,7 @@ public class Player : MonoBehaviour
     {
         _defaultPlayerActions = new DefaultInputActions();
         // _groundLayerMask = LayerMask.GetMask("Ground");
+        _rigidbody = gameObject.GetComponent<Rigidbody>();
     }
 
     private void OnEnable()
@@ -74,22 +77,10 @@ public class Player : MonoBehaviour
         local_z %=360;
         local_z= local_z>180 ? local_z-360 : local_z;
 
-        float _limit = 30f;
+        float _force = 0.2f;
 
-        float _force = 0.5f;
-            
-        if(local_x > _limit)
-            transform.Rotate(-_force, 0, 0);
-        else if (local_x < -_limit)
-            transform.Rotate(_force, 0, 0);
-        else if (local_z > _limit)
-            transform.Rotate(0, 0, -_force);
-        else if (local_z < -_limit)
-            transform.Rotate(0, 0, _force);
-        else
-            transform.Rotate(moveDir.y * _force, 0, moveDir.x * _force);
+        _rigidbody.AddTorque(moveDir.y * _force, 0, -moveDir.x * _force, ForceMode.Force);
 
-        // Console.Write("X :" + local_x + " | Y : " + local_y);
 
         Vector2 lookDir = _lookAction.ReadValue<Vector2>();
     }

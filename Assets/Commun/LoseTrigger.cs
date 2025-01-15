@@ -5,9 +5,9 @@ using UnityEngine.UIElements;
 public class LoseTrigger : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    public float respawnX = -5.42f;  
-    public float respawnY = 1.5f;     
-    public float respawnZ = 5.1f;      
+    [SerializeField] public float respawnX;  
+    [SerializeField] public float respawnY;     
+    [SerializeField] public float respawnZ;      
     [SerializeField] UnityEvent onTriggerEnter;
     void Start()
     {
