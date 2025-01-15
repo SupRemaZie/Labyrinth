@@ -6,18 +6,17 @@ public class MenuController : MonoBehaviour
     Timer timer;
     public void OnPlayClicked()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene("Level_1");
     }
 
     public void OnOptionsClicked()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("OptionMenu");
     }
 
     public void OnQuitClicked()
-    {   
+    {
         Destroy(timer);
         Application.Quit();
-        
     }
 }

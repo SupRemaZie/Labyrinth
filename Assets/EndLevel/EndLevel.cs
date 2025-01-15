@@ -6,11 +6,11 @@ using UnityEngine.UI;
 public class EndLevel : MonoBehaviour
 {
     [SerializeField]
-    public int _level;
+    public string _level;
 
     public void OnHomeClicked()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void OnRetryClicked()
@@ -20,6 +20,8 @@ public class EndLevel : MonoBehaviour
 
     public void OnNextClicked()
     {
-        SceneManager.LoadScene(_level + 1);
+        char lastcaracter = _level[^1];
+        int level = (int)char.GetNumericValue(lastcaracter);
+        SceneManager.LoadScene("Level_" + (level + 1));
     }
 }
