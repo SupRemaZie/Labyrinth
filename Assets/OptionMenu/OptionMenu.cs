@@ -9,8 +9,6 @@ public class OptionMenu : MonoBehaviour
     public TMP_Dropdown _color;
     [SerializeField]
     public Toggle _backgroundMusicToggle;
-    [SerializeField]
-    public string _level;
 
 
     public void Start()
@@ -22,11 +20,11 @@ public class OptionMenu : MonoBehaviour
     {
         Options.Instance.IsBackgroundMusicEnabled = _backgroundMusicToggle.isOn;
         Options.Instance.Color = _color.value;
-        SceneManager.LoadScene(_level);
+        SceneManager.LoadScene(PlayerPrefs.GetString("level"));
     }
 
     public void OnCancelClicked()
     {
-        SceneManager.LoadScene(_level);
+        SceneManager.LoadScene(PlayerPrefs.GetString("level"));
     }
 }
