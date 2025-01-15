@@ -813,7 +813,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 718a2402093891944958cffdf2f21862, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _level: 1
+  _level_text: {fileID: 295105298}
+  _timer_text: {fileID: 106658214}
 --- !u!1 &724065497
 GameObject:
   m_ObjectHideFlags: 0
