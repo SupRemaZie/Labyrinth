@@ -28,6 +28,12 @@ public class Timer : MonoBehaviour
         }
 
     }
+
+    void OnDisable()
+    {
+        PlayerPrefs.SetString("timer", chronometerText.text);
+    }
+
       private void UpdateChronometerText()
     {
         if (chronometerText != null)
