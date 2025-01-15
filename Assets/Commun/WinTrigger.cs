@@ -30,7 +30,12 @@ public class WinTrigger : MonoBehaviour
 
     void OnTriggerEnter(Collider collider)
     {
+        if (!collider.CompareTag("Ball"))
+        {
+            return;
+        }
         onTriggerEnter.Invoke();
+        
 
         UnityEngine.Vector3 lastPosition = collider.transform.position;
 
