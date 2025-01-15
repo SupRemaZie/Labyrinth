@@ -12,6 +12,8 @@ public class Player : MonoBehaviour
 
     private DefaultInputActions _defaultPlayerActions;
 
+    [SerializeField] public Transform _ball;
+
     // public Transform groundCheck;
     // private LayerMask _groundLayerMask;
     private float _speed = 6f;
@@ -23,6 +25,13 @@ public class Player : MonoBehaviour
     private InputAction _moveAction;
     private InputAction _lookAction;
 
+    void Start()
+    {
+        Renderer ballRenderer = _ball.GetComponent<Renderer>();
+        Color color;
+        ColorUtility.TryParseHtmlString(Options.Instance.GetColorHexa(), out color);
+        ballRenderer.material.color = color;
+    }
 
     private void Awake()
     {

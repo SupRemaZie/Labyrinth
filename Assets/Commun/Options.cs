@@ -19,6 +19,13 @@ public class Options
 
     public bool IsBackgroundMusicEnabled { get; set; }
 
+    private readonly string[] ColorDictionnary = {"#FF0000", "#00FF00", "#0000FF"};
+
+    public string GetColorHexa()
+    {
+        return ColorDictionnary[Color];
+    }
+
     private Options()
     {
         Color = 0;
