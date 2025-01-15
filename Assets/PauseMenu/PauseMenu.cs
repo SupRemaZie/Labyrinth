@@ -12,7 +12,7 @@ public class PauseMenu : MonoBehaviour
 
     public void OnRetryClicked()
     {
-        SceneManager.LoadScene(_level);
+        // SceneManager.LoadScene(_level);
     }
 
     public void OnOptionsClicked()
