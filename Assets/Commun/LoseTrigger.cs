@@ -22,7 +22,7 @@ public class LoseTrigger : MonoBehaviour
      void OnTriggerEnter(Collider collider)
     {
         onTriggerEnter.Invoke();
-         if (collider.CompareTag("Ball"))
+        if (collider.CompareTag("Ball"))
         {
             collider.transform.position = new Vector3(respawnX, respawnY, respawnZ);
         }

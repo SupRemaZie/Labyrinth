@@ -486,7 +486,7 @@ Transform:
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
   m_LocalRotation: {x: 0.5681002, y: -0, z: -0, w: 0.8229594}
-  m_LocalPosition: {x: 0, y: 41.3, z: -13.4}
+  m_LocalPosition: {x: 0, y: 48.58, z: -21.51}
   m_LocalScale: {x: 1.1771, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -627,13 +627,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 410087039}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalRotation: {x: 0.6704434, y: -0.18631972, z: 0.17964475, w: 0.6953548}
+  m_LocalPosition: {x: -431.4, y: 3.4, z: -17.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 87.91, y: -30, z: 0}
 --- !u!114 &410087042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1806,9 +1806,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 222551431}
         m_TargetAssemblyTypeName: Timer, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: StopTimer
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2565,8 +2565,8 @@ Transform:
   m_GameObject: {fileID: 2121813576}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 1.4776, y: -0.35, z: -0.2513}
-  m_LocalScale: {x: 21.648092, y: 21.099379, z: 1}
+  m_LocalPosition: {x: 1.4776, y: -21.8, z: -0.25}
+  m_LocalScale: {x: 30, y: 30, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1505969353}
