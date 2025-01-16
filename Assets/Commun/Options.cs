@@ -15,9 +15,9 @@ public class Options
 
     public int Color { get; set; }
 
-    public string test;
+    public float MusicLevel {get; set;}
 
-    public bool IsBackgroundMusicEnabled { get; set; }
+    public float SoundsLevel {get; set;}
 
     private readonly string[] ColorDictionnary = {"#FF0000", "#00FF00", "#0000FF"};
 
@@ -29,7 +29,7 @@ public class Options
     private Options()
     {
         Color = 0;
-        IsBackgroundMusicEnabled = true;
-        test = "hello";
+        MusicLevel = 100;
+        SoundsLevel = 100;
     }
 }

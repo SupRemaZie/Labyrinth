@@ -13,6 +13,10 @@ public class Player : MonoBehaviour
     private DefaultInputActions _defaultPlayerActions;
 
     [SerializeField] public Transform _ball;
+    [SerializeField] public AudioSource[] _sounds;
+    [SerializeField] public AudioSource _music;
+
+    public float BaseMusicVolume;
 
     // public Transform groundCheck;
     // private LayerMask _groundLayerMask;
@@ -27,10 +31,8 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        Renderer ballRenderer = _ball.GetComponent<Renderer>();
-        Color color;
-        ColorUtility.TryParseHtmlString(Options.Instance.GetColorHexa(), out color);
-        ballRenderer.material.color = color;
+        UpdateColorBall();
+        UpdateMusicLevel();
     }
 
     private void Awake()
@@ -86,11 +88,46 @@ public class Player : MonoBehaviour
         local_z %=360;
         local_z= local_z>180 ? local_z-360 : local_z;
 
-        float _force = 0.2f;
+        float _force = 0.3f;
 
         _rigidbody.AddTorque(moveDir.y * _force, 0, -moveDir.x * _force, ForceMode.Force);
 
 
         Vector2 lookDir = _lookAction.ReadValue<Vector2>();
+    }
+
+    public void UpdateColorBall()
+    {
+        Renderer ballRenderer = _ball.GetComponent<Renderer>();
+        Color color;
+        ColorUtility.TryParseHtmlString(Options.Instance.GetColorHexa(), out color);
+        ballRenderer.material.color = color;
+    }
+
+    public void UpdateMusicLevel()
+    {
+        foreach(AudioSource audio in _sounds)
+        {
+            audio.volume = BaseMusicVolume * 3 * Options.Instance.SoundsLevel;
+        }
+        _music.volume = BaseMusicVolume * Options.Instance.MusicLevel;
+    }
+
+    public void PauseMusic()
+    {
+        foreach(AudioSource audio in _sounds)
+            {
+                audio.Pause();
+            }
+        _music.Pause();
+    }
+
+    public void ResumeMusic()
+    {
+        foreach(AudioSource audio in _sounds)
+            {
+                audio.Play();
+            }
+        _music.Play();
     }
 }
