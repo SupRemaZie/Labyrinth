@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine.UI;
 
-public class EndLevel : MonoBehaviour
+public class EndGame : MonoBehaviour
 {
     private string _level;
 
