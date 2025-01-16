@@ -10,7 +10,7 @@ public class MenuController : MonoBehaviour
     void Start()
     {
         PlayerPrefs.SetString("level", SceneManager.GetActiveScene().name);
-        Music.volume = Options.Instance.MusicLevel;
+        Music.volume = Options.Instance.MusicLevel / 4;
     }
 
     public void OnPlayClicked()
