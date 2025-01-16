@@ -9014,9 +9014,8 @@ MonoBehaviour:
   _ball: {fileID: 1519751510}
   _sounds:
   - {fileID: 2063947989}
-  - {fileID: 1342741101}
-  _music: {fileID: 721524964}
-  BaseMusicVolume: 2
+  Music: {fileID: 721524964}
+  BaseMusicVolume: 1
 --- !u!54 &1265915325
 Rigidbody:
   m_ObjectHideFlags: 0

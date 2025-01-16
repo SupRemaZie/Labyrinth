@@ -26,6 +26,7 @@ public class OptionMenu : MonoBehaviour
 
         MusicSlider.value = Options.Instance.MusicLevel;
         SoundsSlider.value = Options.Instance.SoundsLevel;
+
     }
     public void OnSaveClicked()
     {
@@ -34,16 +35,12 @@ public class OptionMenu : MonoBehaviour
         Options.Instance.SoundsLevel = SoundsSlider.value;
         if(SceneManager.loadedSceneCount > 1)
             SceneManager.UnloadSceneAsync("OptionMenu");
-        else 
-            SceneManager.LoadScene(PlayerPrefs.GetString("level"));
     }
 
     public void OnCancelClicked()
     {
         if(SceneManager.loadedSceneCount > 1)
             SceneManager.UnloadSceneAsync("OptionMenu");
-        else 
-            SceneManager.LoadScene(PlayerPrefs.GetString("level"));
     }
 
     public void OnUpdateMusicLevel()

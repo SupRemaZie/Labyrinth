@@ -12,9 +12,9 @@ public class Player : MonoBehaviour
 
     private DefaultInputActions _defaultPlayerActions;
 
-    [SerializeField] public Transform _ball;
-    [SerializeField] public AudioSource[] _sounds;
-    [SerializeField] public AudioSource _music;
+    public Transform _ball;
+    public AudioSource[] _sounds;
+    public AudioSource Music;
 
     public float BaseMusicVolume;
 
@@ -33,6 +33,12 @@ public class Player : MonoBehaviour
     {
         UpdateColorBall();
         UpdateMusicLevel();
+
+        Music.Play();
+        foreach(AudioSource audio in _sounds)
+        {
+            audio.Play();
+        }
     }
 
     private void Awake()
@@ -40,6 +46,8 @@ public class Player : MonoBehaviour
         _defaultPlayerActions = new DefaultInputActions();
         // _groundLayerMask = LayerMask.GetMask("Ground");
         _rigidbody = gameObject.GetComponent<Rigidbody>();
+
+        UpdateMusicLevel();
     }
 
     private void OnEnable()
@@ -48,6 +56,7 @@ public class Player : MonoBehaviour
         _moveAction.Enable();
         _lookAction = _defaultPlayerActions.Player.Look;
         _lookAction.Enable();
+        UpdateMusicLevel();
         
         // _defaultPlayerActions.Player.Jump.performed += OnJump;
         // _defaultPlayerActions.Player.Jump.Enable();
@@ -108,9 +117,12 @@ public class Player : MonoBehaviour
     {
         foreach(AudioSource audio in _sounds)
         {
-            audio.volume = BaseMusicVolume * 3 * Options.Instance.SoundsLevel;
+            audio.volume = Options.Instance.SoundsLevel;
         }
-        _music.volume = BaseMusicVolume * Options.Instance.MusicLevel;
+        Music.volume = BaseMusicVolume * Options.Instance.MusicLevel;
+
+
+        Debug.Log(Options.Instance.MusicLevel);
     }
 
     public void PauseMusic()
@@ -119,7 +131,11 @@ public class Player : MonoBehaviour
             {
                 audio.Pause();
             }
-        _music.Pause();
+        
+        
+        Music.Pause();
+
+        // Debug.Log("Trying to pause : " + Music.name);
     }
 
     public void ResumeMusic()
@@ -128,6 +144,9 @@ public class Player : MonoBehaviour
             {
                 audio.Play();
             }
-        _music.Play();
+
+
+        Music.Play();
+        // Debug.Log("Trying to play : " + Music.name);
     }
 }
