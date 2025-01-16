@@ -7,10 +7,15 @@ public class MenuController : MonoBehaviour
 
     public AudioSource Music;
 
-    void Start()
+    private string _scene_name;
+
+    private bool isMusicUpdated = true;
+
+    void Awake()
     {
         PlayerPrefs.SetString("level", SceneManager.GetActiveScene().name);
         Music.volume = Options.Instance.MusicLevel / 4;
+        _scene_name = SceneManager.GetActiveScene().name;
     }
 
     public void OnPlayClicked()
@@ -27,5 +32,17 @@ public class MenuController : MonoBehaviour
     {
         Destroy(timer);
         Application.Quit();
+    }
+
+    public void FixedUpdate()
+    {
+        if(SceneManager.GetActiveScene().name == _scene_name && !isMusicUpdated)
+        {
+            Music.volume = Options.Instance.MusicLevel / 4;
+            isMusicUpdated = true;
+        }else
+        {
+            isMusicUpdated = false;
+        }
     }
 }

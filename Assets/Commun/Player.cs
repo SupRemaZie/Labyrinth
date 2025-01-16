@@ -44,7 +44,14 @@ public class Player : MonoBehaviour
 
         _cheatAction.performed +=
         context => {
-            SceneManager.LoadScene("EndLevel");
+            if (SceneManager.GetActiveScene().name == "Level_3")
+            {
+                SceneManager.LoadScene("EndGame");
+            }
+            else
+            {
+                SceneManager.LoadScene("EndLevel");
+            }
         };
     }
 
@@ -107,7 +114,7 @@ public class Player : MonoBehaviour
         local_z %=360;
         local_z= local_z>180 ? local_z-360 : local_z;
 
-        float _force = 0.3f;
+        float _force = 0.25f;
 
         _rigidbody.AddTorque(moveDir.y * _force, 0, -moveDir.x * _force, ForceMode.Force);
 
@@ -130,7 +137,7 @@ public class Player : MonoBehaviour
         Music.volume = BaseMusicVolume * Options.Instance.MusicLevel;
 
 
-        Debug.Log(Options.Instance.MusicLevel);
+        // Debug.Log(Options.Instance.MusicLevel);
     }
 
     public void PauseMusic()
