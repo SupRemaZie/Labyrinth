@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.SocialPlatforms;
 using Vector2 = UnityEngine.Vector2;
 using Vector3 = UnityEngine.Vector3;
@@ -27,7 +28,8 @@ public class Player : MonoBehaviour
     private Rigidbody _rigidbody;
 
     private InputAction _moveAction;
-    private InputAction _lookAction;
+
+    private InputAction _cheatAction;
 
     void Start()
     {
@@ -39,6 +41,11 @@ public class Player : MonoBehaviour
         {
             audio.Play();
         }
+
+        _cheatAction.performed +=
+        context => {
+            SceneManager.LoadScene("EndLevel");
+        };
     }
 
     private void Awake()
@@ -54,8 +61,10 @@ public class Player : MonoBehaviour
     {
         _moveAction = _defaultPlayerActions.Player.Move;
         _moveAction.Enable();
-        _lookAction = _defaultPlayerActions.Player.Look;
-        _lookAction.Enable();
+        
+        _cheatAction = _defaultPlayerActions.Player.Cheat;
+        _cheatAction.Enable();
+        
         UpdateMusicLevel();
         
         // _defaultPlayerActions.Player.Jump.performed += OnJump;
@@ -66,7 +75,8 @@ public class Player : MonoBehaviour
     private void OnDisable()
     {
         _moveAction.Disable();
-        _lookAction.Disable();
+
+        _cheatAction.Disable();
         // _defaultPlayerActions.Player.Jump.performed -= OnJump;
         // _defaultPlayerActions.Player.Jump.Disable();
     }
@@ -101,8 +111,6 @@ public class Player : MonoBehaviour
 
         _rigidbody.AddTorque(moveDir.y * _force, 0, -moveDir.x * _force, ForceMode.Force);
 
-
-        Vector2 lookDir = _lookAction.ReadValue<Vector2>();
     }
 
     public void UpdateColorBall()
