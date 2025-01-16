@@ -15,7 +15,7 @@ public class Options
 
     public int Color { get; set; }
 
-    public string test;
+    public float MusicLevel {get; set;}
 
     public bool IsBackgroundMusicEnabled { get; set; }
 
@@ -30,6 +30,5 @@ public class Options
     {
         Color = 0;
         IsBackgroundMusicEnabled = true;
-        test = "hello";
     }
 }

@@ -14,6 +14,10 @@ public class Player : MonoBehaviour
 
     [SerializeField] public Transform _ball;
 
+    [SerializeField] public AudioSource[] _music;
+
+    public float BaseMusicVolume;
+
     // public Transform groundCheck;
     // private LayerMask _groundLayerMask;
     private float _speed = 6f;
@@ -27,10 +31,8 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        Renderer ballRenderer = _ball.GetComponent<Renderer>();
-        Color color;
-        ColorUtility.TryParseHtmlString(Options.Instance.GetColorHexa(), out color);
-        ballRenderer.material.color = color;
+        UpdateColorBall();
+        isMusicActivated();
     }
 
     private void Awake()
@@ -92,5 +94,50 @@ public class Player : MonoBehaviour
 
 
         Vector2 lookDir = _lookAction.ReadValue<Vector2>();
+    }
+
+    public void UpdateColorBall()
+    {
+        Renderer ballRenderer = _ball.GetComponent<Renderer>();
+        Color color;
+        ColorUtility.TryParseHtmlString(Options.Instance.GetColorHexa(), out color);
+        ballRenderer.material.color = color;
+    }
+
+    public void UpdateMusicLevel()
+    {
+        foreach(AudioSource audio in _music)
+        {
+            audio.volume = BaseMusicVolume * Options.Instance.MusicLevel;
+        }
+    }
+
+    public void isMusicActivated()
+    {
+        if(Options.Instance.IsBackgroundMusicEnabled)
+            UpdateMusicLevel();
+        else
+        {
+            foreach(AudioSource audio in _music)
+            {
+                audio.volume = 0;
+            }
+        }
+    }
+
+    public void PauseMusic()
+    {
+        foreach(AudioSource audio in _music)
+            {
+                audio.Pause();
+            }
+    }
+
+    public void ResumeMusic()
+    {
+        foreach(AudioSource audio in _music)
+            {
+                audio.Play();
+            }
     }
 }
