@@ -22,7 +22,7 @@ public class SkeletonIA : MonoBehaviour
     private Animator _animator;
     private bool waitToMove = false;
     private float timer = 0;
-    private float WaitTime = 10f;
+    private float WaitTime = 5f;
 
     void Awake()
     {
