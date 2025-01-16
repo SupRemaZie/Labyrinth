@@ -5,9 +5,12 @@ public class MenuController : MonoBehaviour
 {
     Timer timer;
 
+    public AudioSource Music;
+
     void Start()
     {
         PlayerPrefs.SetString("level", SceneManager.GetActiveScene().name);
+        Music.volume = Options.Instance.MusicLevel;
     }
 
     public void OnPlayClicked()
@@ -17,7 +20,7 @@ public class MenuController : MonoBehaviour
 
     public void OnOptionsClicked()
     {
-        SceneManager.LoadScene("OptionMenu");
+        SceneManager.LoadScene("OptionMenu", LoadSceneMode.Additive);
     }
 
     public void OnQuitClicked()

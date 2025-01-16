@@ -1798,8 +1798,8 @@ MonoBehaviour:
   _ball: {fileID: 1519751510}
   _sounds:
   - {fileID: 1856614100}
-  _music: {fileID: 576293617}
-  BaseMusicVolume: 0.5
+  Music: {fileID: 576293617}
+  BaseMusicVolume: 0.01
 --- !u!54 &464936467
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2271,7 +2271,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 13eb236a225e14045bcefdbd39cbfba7, type: 3}
   m_Resource: {fileID: 8300000, guid: 13eb236a225e14045bcefdbd39cbfba7, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.1
   m_Pitch: 1
   Loop: 1
@@ -8108,6 +8108,11 @@ PrefabInstance:
         type: 3}
       propertyPath: MaxDistance
       value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 6965353340476869815, guid: 524a953ecf4c4f747811073e9724c6c5,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6965353340476869815, guid: 524a953ecf4c4f747811073e9724c6c5,
         type: 3}

@@ -29,7 +29,7 @@ public class Options
     private Options()
     {
         Color = 0;
-        MusicLevel = 100;
-        SoundsLevel = 100;
+        MusicLevel = 1;
+        SoundsLevel = 0.2f;
     }
 }
