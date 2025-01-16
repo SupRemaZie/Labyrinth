@@ -49,4 +49,9 @@ public class EndLevel : MonoBehaviour
         int level = (int)char.GetNumericValue(lastcaracter);
         SceneManager.LoadScene("Level_" + (level + 1));
     }
+
+    public void OnQuitClicked()
+    {
+        Application.Quit();
+    }
 }

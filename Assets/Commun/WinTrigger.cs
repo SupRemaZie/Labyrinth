@@ -35,11 +35,11 @@ public class WinTrigger : MonoBehaviour
             return;
         }
         onTriggerEnter.Invoke();
-        
+
 
         UnityEngine.Vector3 lastPosition = collider.transform.position;
 
-        if(!_isAudioListenerRespawned)
+        if (!_isAudioListenerRespawned)
         {
             Instantiate(gameObject.AddComponent<AudioListener>(), lastPosition, new UnityEngine.Quaternion(0f, 0f, 0f, 0f));
             _isAudioListenerRespawned = true;
@@ -47,6 +47,13 @@ public class WinTrigger : MonoBehaviour
 
         Destroy(collider.gameObject);
 
-        SceneManager.LoadScene("EndLevel");
+        if (SceneManager.GetActiveScene().name == "Level_3")
+        {
+            SceneManager.LoadScene("EndGame");
+        }
+        else
+        {
+            SceneManager.LoadScene("EndLevel");
+        }
     }
 }
