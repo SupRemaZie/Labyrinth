@@ -15,11 +15,12 @@ public class Options
 
     public int Color { get; set; }
 
-    public float MusicLevel {get; set;}
+    public float MusicLevel { get; set; }
 
-    public float SoundsLevel {get; set;}
+    public float SoundsLevel { get; set; }
 
-    private readonly string[] ColorDictionnary = {"#FF0000", "#00FF00", "#0000FF"};
+    private readonly string[] ColorDictionnary = { "#FF0000", "#00FF00", "#0000FF", "#FFD700", "#8A2BE2", "#FF00FF", "#FF4500", "#40E0D0", "#C0C0C0", "#E5B9B7", "#000000", "#FFFFFF" };
+
 
     public string GetColorHexa()
     {
