@@ -26,7 +26,7 @@ public class tigerMoove : MonoBehaviour
         Quaternion rotation = Quaternion.LookRotation(direction); 
             
     
-        tiger.transform.SetPositionAndRotation(Vector3.MoveTowards(tiger.transform.position, ball.transform.position, speed * Time.deltaTime), Quaternion.Slerp(tiger.transform.rotation, rotation, Time.deltaTime * 5f));
+        tiger.transform.SetPositionAndRotation(Vector3.MoveTowards(tiger.transform.position, ball.transform.position, speed * Time.deltaTime), Quaternion.Slerp(tiger.transform.rotation, rotation, Time.deltaTime * speed));
 
         
         if (Vector3.Distance(tiger.transform.position, ball.transform.position) < 0.1f)
