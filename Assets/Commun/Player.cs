@@ -13,8 +13,8 @@ public class Player : MonoBehaviour
     private DefaultInputActions _defaultPlayerActions;
 
     [SerializeField] public Transform _ball;
-
-    [SerializeField] public AudioSource[] _music;
+    [SerializeField] public AudioSource[] _sounds;
+    [SerializeField] public AudioSource _music;
 
     public float BaseMusicVolume;
 
@@ -32,7 +32,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         UpdateColorBall();
-        isMusicActivated();
+        UpdateMusicLevel();
     }
 
     private void Awake()
@@ -88,7 +88,7 @@ public class Player : MonoBehaviour
         local_z %=360;
         local_z= local_z>180 ? local_z-360 : local_z;
 
-        float _force = 0.2f;
+        float _force = 0.3f;
 
         _rigidbody.AddTorque(moveDir.y * _force, 0, -moveDir.x * _force, ForceMode.Force);
 
@@ -106,38 +106,28 @@ public class Player : MonoBehaviour
 
     public void UpdateMusicLevel()
     {
-        foreach(AudioSource audio in _music)
+        foreach(AudioSource audio in _sounds)
         {
-            audio.volume = BaseMusicVolume * Options.Instance.MusicLevel;
+            audio.volume = BaseMusicVolume * 3 * Options.Instance.SoundsLevel;
         }
-    }
-
-    public void isMusicActivated()
-    {
-        if(Options.Instance.IsBackgroundMusicEnabled)
-            UpdateMusicLevel();
-        else
-        {
-            foreach(AudioSource audio in _music)
-            {
-                audio.volume = 0;
-            }
-        }
+        _music.volume = BaseMusicVolume * Options.Instance.MusicLevel;
     }
 
     public void PauseMusic()
     {
-        foreach(AudioSource audio in _music)
+        foreach(AudioSource audio in _sounds)
             {
                 audio.Pause();
             }
+        _music.Pause();
     }
 
     public void ResumeMusic()
     {
-        foreach(AudioSource audio in _music)
+        foreach(AudioSource audio in _sounds)
             {
                 audio.Play();
             }
+        _music.Play();
     }
 }

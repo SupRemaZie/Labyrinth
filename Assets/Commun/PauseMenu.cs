@@ -54,7 +54,7 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         GameIsPaused = false;
         _player.UpdateColorBall();
-        _player.isMusicActivated();
+        _player.UpdateMusicLevel();
         _player.ResumeMusic();
     }
 
