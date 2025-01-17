@@ -1670,7 +1670,7 @@ MonoBehaviour:
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
-  m_ChildAlignment: 6
+  m_ChildAlignment: 1
   m_Spacing: 0
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
@@ -7261,6 +7261,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 464936465}
     m_Modifications:
+    - target: {fileID: -7511558181221131132, guid: a72186c8a748ddd4e8db7a90d3602839,
+        type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 27396c85afeed6b46a898a7bcb402cc1, type: 2}
     - target: {fileID: -8679921383154817045, guid: 2a9ecb801e77f964fb7afc5a8bb37fda,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -7331,11 +7336,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Template_ground
       objectReference: {fileID: 0}
-    - target: {fileID: -7511558181221131132, guid: a72186c8a748ddd4e8db7a90d3602839,
-        type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 27396c85afeed6b46a898a7bcb402cc1, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
