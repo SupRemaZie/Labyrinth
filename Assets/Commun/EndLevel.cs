@@ -11,17 +11,32 @@ public class EndLevel : MonoBehaviour
     [SerializeField] public TMP_Text _level_text;
     [SerializeField] public TMP_Text _timer_text;
 
+    public TMP_Text[] _timers;
+
+    public TMP_Text[] _levels;
+
     public AudioSource Music;
 
     private AudioSource mainTheme;
     private bool MainThemeNotReady = true;
 
+    private readonly string[] saveLevelkeys = {"Level1", "Level2", "Level3"};
+
     void Start()
     {
+
+        PlayerPrefs.SetString("Level1", "00 : 51");
+        PlayerPrefs.SetString("Level2", "00 : 52");
+        PlayerPrefs.SetString("Level3", "00 : 53");
+
         _timer = PlayerPrefs.GetString("timer");
         _level = PlayerPrefs.GetString("level");
 
-        setText();
+
+        if(_level[^1] == 3)
+            setAllScores();
+        else
+            setText();
 
         Music.volume = Options.Instance.SoundsLevel / 2;
 
@@ -30,7 +45,6 @@ public class EndLevel : MonoBehaviour
         mainTheme = gameObject.GetComponent<AudioSource>();
         mainTheme.volume = Options.Instance.MusicLevel / 10;
         mainTheme.Play();
-
     }
 
     void FixedUpdate()
@@ -41,6 +55,19 @@ public class EndLevel : MonoBehaviour
             mainTheme.volume = Options.Instance.MusicLevel / 4;
             MainThemeNotReady = false;
         }
+    }
+
+    private void setAllScores()
+    {
+        if(_timers.Length < 3 || _levels.Length < 3)
+        return;
+
+        for(int i = 0; i < saveLevelkeys.Length; i++)
+        {
+            _timers[i].text = PlayerPrefs.GetString(saveLevelkeys[i]);
+            _levels[i].text = saveLevelkeys[i];
+        }
+
     }
 
     private void setText()
@@ -64,6 +91,8 @@ public class EndLevel : MonoBehaviour
         char lastcaracter = _level[^1];
         int level = (int)char.GetNumericValue(lastcaracter);
         SceneManager.LoadScene("Level_" + (level + 1));
+
+        PlayerPrefs.SetString(saveLevelkeys[level], _timer);
     }
 
     public void OnQuitClicked()
